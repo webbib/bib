@@ -5,6 +5,53 @@
     <title></title>
   </head>
   <body>
-
+    <script>
+    var full;
+    function main()
+    {
+      var authname = document.getElementById("authname").value;
+      if (!document.getElementById("artname") || document.getElementById("artname").length === 0 )
+      {
+      var artname = '"'+document.getElementById("artname").value+'"';
+      }
+      else
+      {
+      var artname = "";
+      }
+      var sitetitle = document.getElementById("sitetitle").value.italics();
+      var pubtitle = document.getElementById("pubname").value;
+      var pubdate = document.getElementById("pubdate").value;
+      var siteURL = document.getElementById("siteURL").value;
+      full = authname+artname+sitetitle+pubtitle+pubdate+siteURL;
+      alert(full);
+      document.getElementById("fullcopy").innerHTML = full;
+    }
+    function copy()
+    {
+       navigator.clipboard.writeText(full);
+    }
+    </script>
+    <label for="authname"> Name of the author of the article (last, first)&emsp;</label>
+    <input id="authname" type="text" placeholder="John Doe">
+    <br>
+    <label for="artname"> Name of article &emsp;</label>
+    <input id="artname" type="text" placeholder="10 cooking tips">
+    <br>
+    <label for="sitetitle"> Title of the website &emsp;</label>
+    <input id="sitetitle" type="text" placeholder="google.com/">
+    <br>
+    <label for="pubname"> Name of publisher &emsp;</label>
+    <input id="pubname" type="text" placeholder="Random House">
+    <br>
+    <label for="pubdate"> Date of publication &emsp;</label>
+    <input id="pubdate" type="datetime" placeholder="1 May 2021">
+    <br>
+    <label for="siteURL"> URL of site &emsp;</label>
+    <input id="siteURL" type="text" placeholder="webbib.github.io/bib/">
+    <br>
+    <button onclick="main()"> Submit </button>
+    <button onclick="copy()"> copy </button>
+    <p id="fullcopy">
+    <br>
   </body>
 </html>
