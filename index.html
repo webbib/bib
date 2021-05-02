@@ -10,9 +10,9 @@
     function main()
     {
       var authname = document.getElementById("authname").value;
-      if (!document.getElementById("artname") || document.getElementById("artname").length === 0 )
+      if (document.getElementById("artname") || document.getElementById("artname").length !== 0 )
       {
-      var artname = '"'+document.getElementById("artname").value+'"';
+      var artname = '"'+document.getElementById("artname").value+'."';
       }
       else
       {
@@ -22,7 +22,7 @@
       var pubtitle = document.getElementById("pubname").value;
       var pubdate = document.getElementById("pubdate").value;
       var siteURL = document.getElementById("siteURL").value;
-      full = authname+artname+sitetitle+pubtitle+pubdate+siteURL;
+      full = authname+". "+artname+" "+sitetitle+","+" "+pubtitle+","+" "+pubdate+", "+siteURL+".";
       document.getElementById("fullcopy").innerHTML = full;
     }
     function copy()
@@ -31,13 +31,13 @@
     }
     </script>
     <label for="authname"> Name of the author of the article (last, first)&emsp;</label>
-    <input id="authname" type="text" placeholder="John Doe">
+    <input id="authname" type="text" placeholder="Doe, John">
     <br>
     <label for="artname"> Name of article &emsp;</label>
     <input id="artname" type="text" placeholder="10 cooking tips">
     <br>
     <label for="sitetitle"> Title of the website &emsp;</label>
-    <input id="sitetitle" type="text" placeholder="google.com/">
+    <input id="sitetitle" type="text" placeholder="google">
     <br>
     <label for="pubname"> Name of publisher &emsp;</label>
     <input id="pubname" type="text" placeholder="Random House">
@@ -50,7 +50,8 @@
     <br>
     <button onclick="main()"> Submit </button>
     <button onclick="copy()"> copy </button>
-    <p id="fullcopy">
+    <br>
+    <pre id="fullcopy"> </fullcopy>
     <br>
   </body>
 </html>
